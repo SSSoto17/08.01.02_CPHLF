@@ -1,0 +1,20 @@
+@import url(reset.css);
+@import url(variables.css);
+
+body {
+  background-image: var(--gradient-bg);
+  font-family: "karla", sans-serif;
+  color: var(--text-primary);
+}
+
+main {
+  max-width: 1120px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-l);
+}
+
+li {
+  list-style: none;
+}

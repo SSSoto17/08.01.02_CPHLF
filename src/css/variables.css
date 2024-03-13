@@ -1,0 +1,97 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+@font-face {
+  font-family: "moon";
+  src: url("moon_font/moon2.0-regular-webfont.woff2") format("woff2"),
+    url("moon_font/moon2.0-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* COLORS */
+:root {
+  /* BRAND */
+  --cherry: #fc383f;
+  --flamingo: #ce4989;
+  --amethyst: #8c61f5;
+  --cerulean: #088ec2;
+  --seafoam: #00b8b5;
+
+  /* PURPLE */
+  --purple-50: #eae7ef;
+  --purple-100: #bdb6cc;
+  --purple-200: #9d92b4;
+  --purple-300: #706091;
+  --purple-400: #54417c;
+  --purple-500: #29125b;
+  --purple-600: #251053;
+  --purple-700: #1d0d41;
+  --purple-800: #170a32;
+  --purple-900: #110826;
+
+  /* NEUTRALS */
+  --neutral-1: #ffffff;
+  --neutral-2: #fdfcfd;
+  --neutral-3: #f5f5f6;
+  --neutral-4: #f0f0f1;
+  --neutral-5: #dbd9dd;
+  --neutral-6: #c2c0c6;
+  --neutral-7: #928e99;
+  --neutral-8: #615b6b;
+  --neutral-9: #4e4759;
+  --neutral-10: #30293e;
+  --neutral-11: #292137;
+  --neutral-12: #1f172e;
+  --neutral-13: #0c031c;
+
+  /* TEXT */
+  --text-primary: var(--purple-50);
+  --text-secondary: var(--neutral-2);
+  --text-highlight: var(--seafoam);
+
+  /* STROKES */
+  --glass-light: var(--purple-300);
+  --stroke-light: var(--purple-50);
+
+  /* GRADIENTS */
+  --gradient-hot: linear-gradient(
+    to bottom right,
+    var(--cherry),
+    var(--flamingo),
+    var(--amethyst)
+  );
+  --gradient-cool: linear-gradient(
+    to bottom right,
+    var(--amethyst),
+    var(--cerulean),
+    var(--seafoam)
+  );
+  --gradient-bg: linear-gradient(
+    to bottom,
+    var(--purple-900),
+    var(--purple-800)
+  );
+}
+
+/* SPACING */
+:root {
+  /* PRIMITIVES */
+  --spacing-1: 1px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-320: 320px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+
+  /* TOKENS */
+  --spacing-xxs: var(--spacing-4);
+  --spacing-xs: var(--spacing-8);
+  --spacing-s: var(--spacing-16);
+  --spacing-m: var(--spacing-24);
+  --spacing-l: var(--spacing-32);
+  --spacing-xl: var(--spacing-40);
+  --spacing-xxl: var(--spacing-48);
+}
