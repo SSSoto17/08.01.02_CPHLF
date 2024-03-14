@@ -1,5 +1,134 @@
 ---
 
 ---
+<div id="footer">
+<div id="contact">
+    <h3>Contact</h3>
+    <ul>
+        <li>© COPENHAGEN LIGHT FESTIVAL</li>
+        <li>info@copenhagenlightfestival.org</li>
+        <li>Tlf. +45 25 55 66 04</li>
+    </ul>
+    <div class="icons mobile">
+        <a href="https://www.instagram.com/cphlightfest/"><img src="../../img/Instagram.svg" alt=""></a>
+        <a href="https://www.facebook.com/cphlightfest/"><img src="../../img/Facebook.svg" alt=""></a>
+        <a href="https://www.linkedin.com/company/copenhagen-light-festival/?originalSubdomain=dk"><img src="../../img/LinkedIn.svg" alt=""></a>
+    </div>
+</div>
+<div id="information">
+    <h3>Information</h3>
+    <ul>
+        <li>Fotokonkurrence</li>
+        <li>Presse & Medier</li>
+        <li>Gdpr & pERSONDATA</li>
+        <li>FOR KUNSTNERE</li>
+        <li>FAQ</li>
+        <li>TIDLIGERE FESTIVALER</li>
+    </ul>
+</div>
+<div id="socials" class="desktop">
+    <h3>Socials</h3>
+    <div class="icons">
+    <a href="https://www.instagram.com/cphlightfest/"><img src="../../img/Instagram.svg" alt=""></a>
+    <a href="https://www.facebook.com/cphlightfest/"><img src="../../img/Facebook.svg" alt=""></a>
+    <a href="https://www.linkedin.com/company/copenhagen-light-festival/?originalSubdomain=dk"><img src="../../img/LinkedIn.svg" alt=""></a>
+</div>
+</div>
+</div>
 
-<h2>Add some footer content :)</h2>
+<style>
+:root {
+    --purple-50: #eae7ef;
+    --stroke-light: var(--purple-50);
+    --purple-200: #9d92b4;
+}
+
+h3 {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+li {
+    padding: 4px 0;
+}
+#information li {
+    cursor: pointer;
+    text-transform: uppercase;
+}
+#information li:hover {
+color: var(--purple-200);
+}
+
+
+#footer div {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#information ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+}
+
+#socials .icons, #contact .icons {
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+}
+
+@media (min-width: 900px) {
+    .mobile {
+        display: none !important;
+    }
+    li {
+    font-size: 16px;
+}
+img { 
+    width: 32px;
+}
+#information {
+    border-left: solid 1px var(--stroke-light);
+    border-right: solid 1px var(--stroke-light);
+    padding: 0 80px;
+}
+#footer {
+    display: flex;
+    flex-direction: row;
+    padding: 32px 160px;
+    justify-content: space-around;
+}
+
+#contact, #socials {
+    padding: 0 16px;
+}
+
+}
+@media (max-width: 899px) {
+    .desktop {
+        background-color: red;
+        display: none !important;
+    }
+    #footer {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 32px;
+}
+#contact, #information {
+    padding: 24px 0;
+}
+#contact .icons {
+gap: 24px;
+}
+
+#information {
+    border-top: solid 1px var(--stroke-light);
+}
+li {
+    font-size: 14px;
+}
+img { 
+    width: 24px;
+}
+}
+</style>
