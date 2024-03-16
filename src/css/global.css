@@ -13,6 +13,7 @@ main {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: var(--spacing-l);
+  padding: 32px 0;
 }
 
 li {

@@ -5,18 +5,134 @@ import Bannercard from './Bannercard.astro'
 ---
 
 <div id="banner">
-    <Bannercard title="Visit the Festival" />
+    <a href="#">
+        <div class="link visitors">
+            <div class="text_section">
+                <h1 class="tagline">
+                    Visit the Festival
+                </h1>
+                <img src="img/arrow.svg" alt="arrow" class="arrow">
+            </div>            
+        </div>
+    </a>
+    <a href="#">
+        <div class="link sponsors">
+            <div class="text_section">
+                <h1 class="tagline">
+                    Become a Sponsor
+                </h1>
+                <img src="img/arrow.svg" alt="arrow" class="arrow">
+            </div>            
+        </div>
+    </a>
+    <a href="#">
+        <div class="link artists">
+            <div class="text_section">
+                <h1 class="tagline">
+                    Exhibit at the Festival
+                </h1>
+                <img src="img/arrow.svg" alt="arrow" class="arrow">
+            </div>            
+        </div>
+    </a>
+    <!-- <Bannercard title="Visit the Festival" />
     <Bannercard title="Become a Sponsor" />
-    <Bannercard title="Exhibit at the Festival" />
+    <Bannercard title="Exhibit at the Festival" /> -->
 </div>
 
 <style>
     #banner {
         grid-column: 1 / 13;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(8, 1fr);
         overflow: hidden;
         border: 1px #9d92b4 solid;
         border-radius: 4px;
+        margin: 48px 0;
     }
+
+    a {
+    display: contents;
+    }
+
+    .text_section {
+        position: absolute;    
+        left: 64px;
+        bottom: 24px;    
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        max-width: 208px;
+        z-index: 10;
+    }
+
+    h1.tagline {
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    .link {
+        position: relative;
+        aspect-ratio: 3500 / 2333;
+        background-color: #9d92b4;
+        grid-row: 1;
+        
+    }
+
+    .arrow {
+        width: 16px;
+    }
+
+    .visitors {        
+        grid-column: 1 / 4;
+        clip-path: polygon(0 0,100% 0,67% 100%,0 100%);
+    }
+
+    .visitors::after {
+        content: "";
+        background-image: url("img/04_bron.jpg"), linear-gradient(rgba(37, 16, 83, .25), rgba(37, 16, 83, .25));
+        background-position: 30% 50%;
+        background-size: cover;
+        width: 417px;
+        height: 280px;
+        clip-path: polygon(0 0,100% 0,67% 100%,0 100%);
+        position: absolute;
+    }
+
+    .visitors .text_section {
+        left: 16px;
+    }
+
+    .sponsors {        
+        grid-column: 3 / 7;
+        clip-path: polygon(25% 0,100% 0,75% 100%,0 100%);
+        aspect-ratio: 3500 / 1750;
+    }
+
+    .sponsors::after {
+        content: "";
+        background-image: url("img/76_tetra.jpg");
+        background-size: cover;
+        background-position: 50% 75%;               
+        width: 555px;
+        height: 280px;
+        clip-path: polygon(25% 0,100% 0,75% 100%,0 100%);
+        position: absolute;
+    }
+
+    .artists {        
+        grid-column: 6 / 9;
+        clip-path: polygon(33% 0,100% 0,100% 100%,0 100%)        
+    }
+
+    .artists::after {
+        content: "";
+        background-image: url("img/03_pixlearth.jpg");
+        background-size: cover;
+        width: 417px;
+        height: 280px;
+        position: absolute;
+        right: 0;
+    }
+
 </style>
