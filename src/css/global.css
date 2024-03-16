@@ -18,3 +18,12 @@ main {
 li {
   list-style: none;
 }
+
+a {
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+a:hover {
+  color: var(--text-secondary);
+}

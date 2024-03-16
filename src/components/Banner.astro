@@ -1,0 +1,22 @@
+---
+
+import Bannercard from './Bannercard.astro'
+
+---
+
+<div id="banner">
+    <Bannercard title="Visit the Festival" />
+    <Bannercard title="Become a Sponsor" />
+    <Bannercard title="Exhibit at the Festival" />
+</div>
+
+<style>
+    #banner {
+        grid-column: 1 / 13;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: hidden;
+        border: 1px #9d92b4 solid;
+        border-radius: 4px;
+    }
+</style>
