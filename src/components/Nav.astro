@@ -3,43 +3,94 @@
 ---
 
 <nav>
-    <a href="index.astro">
-        <div class="logo"></div>
-    </a>
-    <ul>
-        <li><a href="#">Plan Your Visit</a></li>
-        <li><a href="#">Work With Us</a></li>
-        <li><a href="#">About</a></li>
-        <li>EN / DA</li>
-    </ul>
+  <a href="index.astro">
+    <div class="logo"></div>
+  </a>
+  <ul class="nav_links">
+    <li><a href="#">Plan Your Visit ></a></li>
+    <li><a href="#">Work With Us ></a></li>
+    <li><a href="#">About</a></li>
+    <li class="language"><span class="language_EN">EN</span> / <span class="language_DA">DA</span></li>
+  </ul>
 </nav>
 
 <style>
-
-nav {
+  a {
+    cursor: pointer;
+  }
+  nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 32px;
-}
+  }
 
-nav .logo {
+  .nav_links a {
+    font-family: "Karla";
+    font-size: 20px;
+    font-weight: Medium;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-transform: Uppercase;
+    color: #dacae1;
+    text-decoration: none;
+  }
+
+  .nav_links a:hover {
+    color: #8c61f5;
+  }
+
+  nav .logo {
     background-image: url("img/Stacked-Logo-for-frontpage.png");
     background-size: 100%;
     aspect-ratio: 1000 / 550;
     width: 100px;
-}
+  }
 
-nav ul {
+  nav ul {
     width: 572px;
     display: flex;
     justify-content: space-between;
-}
+  }
 
-li {
+  li {
     list-style: none;
-}
+  }
 
+  .language {
+    color: #dacae1;
+    font-size: 20px;
 
+    cursor: pointer;
+  }
 
+  .language_active {
+    text-decoration-color: #8c61f5;
+    /*   text-decoration-color: linear-gradient(to right, #fc383f, #ce4989, #8c61f5); */
+    border-bottom: 3.5px solid #8c61f5;
+    font-weight: 800;
+  }
 </style>
+<script>
+  let currentLang = ".language_EN";
+  document.querySelector(".language").addEventListener("click", klikFunk);
+  klikFunk();
+  function klikFunk() {
+    console.log("languageSelector");
+
+    document.querySelector(".language_DA").classList.remove("language_active");
+    document.querySelector(".language_EN").classList.remove("language_active");
+    document.querySelector(currentLang).classList.add("language_active");
+    if (currentLang === ".language_DA") {
+      currentLang = ".language_EN";
+    } else {
+      currentLang = ".language_DA";
+    }
+  }
+
+  // function language(lang) {
+  //   if (language) {
+  //     document.querySelector(".language_EN").classList.add(".language_active");
+  //   }
+  // }
+</script>
