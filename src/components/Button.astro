@@ -1,0 +1,23 @@
+---
+
+const {button} = Astro.props;
+
+---
+
+<a class="button" href="#">{button}</a>
+
+
+
+<style>
+.button {
+    background-color: var(--gradient-hot);
+    border-radius: 4px;
+    box-shadow: 4px 4px 1px var( --cerulean);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: block;
+    padding: 8px 72px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+</style>
