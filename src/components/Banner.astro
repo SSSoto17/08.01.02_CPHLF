@@ -1,7 +1,5 @@
 ---
 
-import Bannercard from './Bannercard.astro'
-
 ---
 
 <div id="banner">
@@ -35,9 +33,6 @@ import Bannercard from './Bannercard.astro'
             </div>            
         </div>
     </a>
-    <!-- <Bannercard title="Visit the Festival" />
-    <Bannercard title="Become a Sponsor" />
-    <Bannercard title="Exhibit at the Festival" /> -->
 </div>
 
 <style>
@@ -46,9 +41,9 @@ import Bannercard from './Bannercard.astro'
         display: grid;
         grid-template-columns: repeat(8, 1fr);
         overflow: hidden;
-        border: 1px #9d92b4 solid;
-        border-radius: 4px;
-        margin: 48px 0;
+        border: var(--spacing-1) var(--stroke-light) solid;
+        border-radius: var(--spacing-xxs);
+        margin: var(--spacing-xxl) 0;
     }
 
     a {
@@ -58,10 +53,10 @@ import Bannercard from './Bannercard.astro'
     .text_section {
         position: absolute;    
         left: 64px;
-        bottom: 24px;    
+        bottom: var(--spacing-m);    
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: var(--spacing-xs);
         max-width: 208px;
         z-index: 10;
         transition: .15s ease-in;
@@ -74,16 +69,15 @@ import Bannercard from './Bannercard.astro'
 
     .link {
         position: relative;
-        /* aspect-ratio: 3500 / 2333; */
-        background-color: #9d92b4;
+        background-color: var(--stroke-light);
         grid-row: 1;
         transition: .15s ease-in;
-        background-blend-mode:darken;
+        background-blend-mode: darken;
         
     }
 
     .arrow {
-        width: 16px;
+        width: var(--spacing-s);
     }
 
     .visitors {        
