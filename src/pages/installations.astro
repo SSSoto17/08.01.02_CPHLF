@@ -1,9 +1,21 @@
 ---
 
 import MainLayout from '../layouts/MainLayout.astro'
+import FilterSidebar from '../components/FilterSidebar.astro'
 
 ---
 
 <MainLayout>
     <h1>Hello</h1>
+    <FilterSidebar />
+    <div class="container">
+        <!-- Searchbar -->
+        <!-- Cards -->
+    </div>
 </MainLayout>
+
+<style>
+    .container {
+        grid-column: 4 / 13;
+    }
+</style>
