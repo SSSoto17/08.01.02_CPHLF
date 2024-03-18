@@ -1,0 +1,48 @@
+---
+
+const {title} = Astro.props
+
+---
+
+<div class="heading">
+    <h4>{title}</h4>
+    <img src="img/arrow.svg" alt="">
+</div>
+<ul>
+    <li>option</li>
+    <li>option</li>
+    <li>option</li>
+    <li>option</li>
+    <li class="reset">Clear</li>
+</ul>
+
+
+<style>
+    .heading {
+        display: flex;
+        width: 212px;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--stroke-light);
+        cursor: pointer;
+    }
+
+    img {
+        width: var(--spacing-xs);
+    }
+
+    ul {
+        width: 164px;
+        padding-left: var(--spacing-s);
+    }
+
+    li {
+        padding: var(--spacing-xs) 0;
+        cursor: pointer;
+    }
+
+    li.reset {
+        text-align: right;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+</style>

@@ -28,3 +28,17 @@ a {
 a:hover {
   color: var(--text-secondary);
 }
+
+/* TEXT STYLES */
+
+h1 {
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 72px;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+}
