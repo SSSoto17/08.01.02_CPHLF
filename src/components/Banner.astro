@@ -6,7 +6,7 @@
     <a href="/installations">
         <div class="link visitors">
             <div class="text_section">
-                <h1 class="tagline">
+                <h1 class="tagline_bold">
                     Visit the Festival
                 </h1>
                 <img src="img/arrow.svg" alt="arrow" class="arrow">
@@ -16,7 +16,7 @@
     <a href="#">
         <div class="link sponsors">
             <div class="text_section">
-                <h1 class="tagline">
+                <h1 class="tagline_bold">
                     Become a Sponsor
                 </h1>
                 <img src="img/arrow.svg" alt="arrow" class="arrow">
@@ -26,7 +26,7 @@
     <a href="#">
         <div class="link artists">
             <div class="text_section">
-                <h1 class="tagline">
+                <h1 class="tagline_bold">
                     Exhibit at the Festival
                 </h1>
                 <img src="img/arrow.svg" alt="arrow" class="arrow">
@@ -83,6 +83,7 @@
     .visitors {        
         grid-column: 1 / 4;
         clip-path: polygon(0 0,100% 0,69% 100%,0 100%);
+        z-index: 2;
     }
 
     .visitors::after {
@@ -116,7 +117,7 @@
         height: 280px;
         clip-path: polygon(25% 0,100% 0,75% 100%,0 100%);
         position: absolute;
-        left: 2px;
+        right: 2px;
     }
 
     .artists {        

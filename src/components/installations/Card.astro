@@ -10,9 +10,44 @@ const {data} = Astro.props
     <article>
         <Image src={data.image} inferSize alt="" />
         <div class="header">
-            <h1>{data.name}</h1>
+            <h3>{data.name}</h3>
             <p>{data.date}</p>
-            <p>{data.location}</p>
+            <p class="tagline_sm">{data.location}</p>
         </div>
     </article>
 </a>
+
+<style>
+    a {
+        display: contents;
+    }
+
+    article {
+        overflow: hidden;
+        border: 1px solid var(--glass-light);
+        border-radius: var(--spacing-xxs);
+        background-color: var(--glass-effect);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        transition: .15s ease-in;
+    }
+
+    article:hover {
+        scale: 1.02;
+        filter: drop-shadow(1px 1px 10px var(--glass-light));
+    }
+
+    Image {
+        width: 400px;
+        height: 256px;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xxs);
+        padding: var(--spacing-s);
+    }
+
+</style>

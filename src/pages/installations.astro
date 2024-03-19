@@ -4,6 +4,7 @@ import MainLayout from '../layouts/MainLayout.astro'
 import Filter from '../components/installations/Filter.astro'
 import Searchbar from '../components/installations/Searchbar.astro'
 import Card from '../components/installations/Card.astro'
+import Button from '../components/Button.astro'
 
 
 const data = await fetch("https://pmybjwfsotmvaguasetn.supabase.co/rest/v1/cphlightfestival",{
@@ -24,7 +25,10 @@ const data = await fetch("https://pmybjwfsotmvaguasetn.supabase.co/rest/v1/cphli
             {data.map(installation=>{
                 return <Card data={installation} />
             })}            
-        </div>        
+        </div>
+        <div class="load_more">
+            <Button variant="ghost" label="Load more" /> 
+        </div>               
     </section>
 </MainLayout>
 
@@ -44,5 +48,12 @@ const data = await fetch("https://pmybjwfsotmvaguasetn.supabase.co/rest/v1/cphli
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: var(--spacing-s);
+    }
+
+    .load_more {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: var(--spacing-m) 0;
     }
 </style>

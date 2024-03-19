@@ -1,23 +1,37 @@
 ---
 
-const {title} = Astro.props
+const {title, type} = Astro.props
 
 ---
 
-<div class="heading">
+<section>
+<article class="heading">
     <h4>{title}</h4>
     <img src="img/arrow.svg" alt="">
-</div>
-<ul>
-    <li>option</li>
-    <li>option</li>
-    <li>option</li>
-    <li>option</li>
+</article>
+{type=="Location" && <ul class="hide">
+    <li>Nørrebro</li>
+    <li>Østerbro</li>
+    <li>Vesterbro</li>
+    <li>Sydhavn</li>
+    <li>Ørestad</li>
     <li class="reset">Clear</li>
-</ul>
-
+</ul>}
+{type=="Year" && <ul class="hide">
+    <li>Upcoming</li>
+    <li>Current</li>
+    <li>Archive</li>
+    <li class="reset">Clear</li>
+</ul>}
+</section>
 
 <style>
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-xxs) 0;
+    }
     .heading {
         display: flex;
         width: 212px;
@@ -28,6 +42,7 @@ const {title} = Astro.props
 
     img {
         width: var(--spacing-xs);
+        transform: rotate(90deg);
     }
 
     ul {
@@ -45,4 +60,17 @@ const {title} = Astro.props
         font-weight: 700;
         text-transform: uppercase;
     }
+
+    .hide {
+        display: none;
+    }
 </style>
+
+<script>
+    const filterToggle = document.querySelector(".heading");
+
+    filterToggle.addEventListener("click", () => {
+        console.log("click")
+        document.querySelector("ul").classList.toggle("hide");
+    })
+</script>

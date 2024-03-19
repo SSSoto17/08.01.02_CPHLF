@@ -53,6 +53,9 @@
   --glass-light: var(--purple-300);
   --stroke-light: var(--purple-50);
 
+  /* GLASS EFFECT */
+  --glass-effect: rgba(234, 231, 239, 0.1);
+
   /* GRADIENTS */
   --gradient-hot: linear-gradient(
     to bottom right,

@@ -1,23 +1,46 @@
 ---
 
-const {button} = Astro.props;
+const {variant, label} = Astro.props;
 
 ---
 
-<a class="button" href="#">{button}HEJ</a>
+<a class={variant} href="#">{label}</a>
 
 
 
 <style>
-.button {
-    background-image: var(--gradient-hot);
-    border-radius: 4px;
-    box-shadow: 4px 4px 1px var( --cerulean);
-    color: var(--text-primary);
+a {
+    /* BOX */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;       
     cursor: pointer;
-    display: block;
-    padding: 8px 72px;
+    padding: var(--spacing-xs) 72px;    
+    transition: .15s ease-in;
+    
+    /* LABEL */
     text-decoration: none;
     text-transform: uppercase;
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+a:hover {
+    scale: 1.02;
+}
+
+.default {
+    background-image: var(--gradient-hot);
+    box-shadow: 4px 4px 1px var( --cerulean); 
+}
+
+.ghost {
+    box-shadow: 4px 4px 1px var( --flamingo);
+    border-style: solid;
+    border-width: 4px;
+    border-image: var(--gradient-cool) 1;
+    position: relative;
 }
 </style>

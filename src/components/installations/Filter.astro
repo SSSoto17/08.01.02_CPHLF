@@ -6,8 +6,8 @@ import FilterAccordion from '../filter/FilterAccordion.astro'
 
 <aside>
     <h1>Filter</h1>
-    <FilterAccordion title="Location" />
-    <FilterAccordion title="Year" />
+    <FilterAccordion title="Location" type="Location" />
+    <FilterAccordion title="Year" type="Year"/>
 </aside>
 
 <style>
@@ -16,7 +16,7 @@ import FilterAccordion from '../filter/FilterAccordion.astro'
         padding: var(--spacing-m) 0;
         display: flex;
         flex-direction: column;
-        gap: var(--spacing-l)
+        gap: var(--spacing-m)
     }
 
     h1 {
