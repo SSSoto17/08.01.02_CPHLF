@@ -5,17 +5,27 @@ import Filter from '../components/installations/Filter.astro'
 import Searchbar from '../components/installations/Searchbar.astro'
 import Card from '../components/installations/Card.astro'
 
+
+const data = await fetch("https://pmybjwfsotmvaguasetn.supabase.co/rest/v1/cphlightfestival",{
+    method: "GET",
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBteWJqd2Zzb3RtdmFndWFzZXRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA3NjU0NDIsImV4cCI6MjAyNjM0MTQ0Mn0.-GOvq1onQLgBhJwjrBLtalcpzQakjn3kN7ry4HKidHQ"
+    }
+}).then((res) => res.json());
+
 ---
 
 <MainLayout>
     <h1>Lightworks and Installations</h1>
     <Filter />
-    <div class="container">
+    <section class="installations">
         <Searchbar />
         <div class="grid">
-            <Card />
+            {data.map(installation=>{
+                return <Card data={installation} />
+            })}            
         </div>        
-    </div>
+    </section>
 </MainLayout>
 
 <style>
@@ -23,7 +33,7 @@ import Card from '../components/installations/Card.astro'
         grid-column: 1 / 13;
     }
 
-    .container {
+    section.installations {
         grid-column: 4 / 13;
         display: flex;
         flex-direction: column;

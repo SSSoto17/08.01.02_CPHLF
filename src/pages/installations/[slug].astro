@@ -1,0 +1,47 @@
+---
+
+import MainLayout from '../../layouts/MainLayout.astro'
+import { Image } from 'astro:assets'
+
+export async function getStaticPaths() {
+  const data = await fetch("https://pmybjwfsotmvaguasetn.supabase.co/rest/v1/cphlightfestival",{
+    method: "GET",
+    headers: {
+        apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBteWJqd2Zzb3RtdmFndWFzZXRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA3NjU0NDIsImV4cCI6MjAyNjM0MTQ0Mn0.-GOvq1onQLgBhJwjrBLtalcpzQakjn3kN7ry4HKidHQ"
+    }
+  }).then((res) => res.json());
+
+  return data.map((post) => {
+    return {
+      params: { slug: post.slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props
+
+---
+
+<MainLayout>
+    <h1><span>{post.no}</span> {post.name}</h1>
+
+    <!-- Back button -->
+
+
+    <!-- Main info -->
+
+    <article>
+      <Image src={post.image} inferSize alt="" />
+        <div>
+            <h1></h1>
+            <h4></h4>
+            <h4></h4>
+            <p></p>
+        </div>
+    </article>
+</MainLayout>
+
+<style>
+    
+</style>
