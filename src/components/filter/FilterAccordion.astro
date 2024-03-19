@@ -9,7 +9,7 @@ const {title, type} = Astro.props
     <h4>{title}</h4>
     <img src="img/arrow.svg" alt="">
 </article>
-{type=="Location" && <ul class="hide">
+{type=="Location" && <ul class="location">
     <li>Nørrebro</li>
     <li>Østerbro</li>
     <li>Vesterbro</li>
@@ -17,7 +17,7 @@ const {title, type} = Astro.props
     <li>Ørestad</li>
     <li class="reset">Clear</li>
 </ul>}
-{type=="Year" && <ul class="hide">
+{type=="Year" && <ul class="year">
     <li>Upcoming</li>
     <li>Current</li>
     <li>Archive</li>
@@ -61,16 +61,18 @@ const {title, type} = Astro.props
         text-transform: uppercase;
     }
 
-    .hide {
-        display: none;
+    .active {
+        display: block;
     }
 </style>
 
 <script>
     const filterToggle = document.querySelector(".heading");
 
-    filterToggle.addEventListener("click", () => {
-        console.log("click")
-        document.querySelector("ul").classList.toggle("hide");
+    filterToggle.addEventListener("click", (evt) => {
+        // document.querySelector("ul").addEventListener("click", () => {
+        //     console.log("click2")
+        // });
+        // document.querySelector("ul").classList.toggle("active");
     })
 </script>

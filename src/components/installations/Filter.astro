@@ -6,7 +6,7 @@ import FilterAccordion from '../filter/FilterAccordion.astro'
 
 <aside>
     <h1>Filter</h1>
-    <FilterAccordion title="Location" type="Location" />
+    <FilterAccordion title="Location" type="Location"/>
     <FilterAccordion title="Year" type="Year"/>
 </aside>
 
@@ -25,3 +25,7 @@ import FilterAccordion from '../filter/FilterAccordion.astro'
         line-height: 32px;
     }
 </style>
+
+<script>
+    const filterAcc = document.querySelectorAll("FilterAccordion");
+</script>
