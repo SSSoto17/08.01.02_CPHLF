@@ -1,6 +1,11 @@
 ---
 
 import MainLayout from '../../layouts/MainLayout.astro'
+
+import Overview from '../../components/installations/Overview.astro'
+import Info from '../../components/installations/Info.astro'
+import GlassBox from '../../components/GlassBox.astro'
+import Button from '../../components/Button.astro'
 import { Image } from 'astro:assets'
 
 export async function getStaticPaths() {
@@ -11,37 +16,84 @@ export async function getStaticPaths() {
     }
   }).then((res) => res.json());
 
-  return data.map((post) => {
+  return data.map((exhibit) => {
     return {
-      params: { slug: post.slug },
-      props: { post },
+      params: { slug: exhibit.slug },
+      props: { exhibit },
     };
   });
 }
 
-const { post } = Astro.props
+const { exhibit } = Astro.props
 
 ---
 
 <MainLayout>
-    <h1><span>{post.no}</span> {post.name}</h1>
+    
 
     <!-- Back button -->
 
 
     <!-- Main info -->
 
-    <article>
-      <Image src={post.image} inferSize alt="" />
-        <div>
-            <h1></h1>
-            <h4></h4>
-            <h4></h4>
-            <p></p>
+    <Overview>
+      <Image src={exhibit.image} inferSize alt="" />
+      <article>
+        <h1><span>{exhibit.no}</span> {exhibit.name}</h1>
+        <ul>
+          <li><span>By:</span> {exhibit.artist}</li>
+          <li><span>Where:</span> {exhibit.location}</li>
+        </ul>
+        <p>{exhibit.description}</p>
+      </article>
+    </Overview>
+    <Info />
+
+    <section>
+      <GlassBox>
+        <h4>Thank you to</h4>
+        <p>{exhibit.thanks_to}</p>
+      </GlassBox>
+      <GlassBox>
+        <p>{exhibit.links}</p>
+      </GlassBox>
+      <GlassBox>
+        <div class="text_section">
+          <div>
+          <h3>Find it here:</h3>
+          <h5>{exhibit.location}</h5>
         </div>
-    </article>
+        <img class="icon"src="/img/location.svg" alt=""> 
+        </div>              
+        <Button variant="map" label="View on map" />
+      </GlassBox>
+    </section>
+    
 </MainLayout>
 
 <style>
+
+  section {
+    grid-column: 1 / 13;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-l);
+    padding: var(--spacing-xxl) 0;
+    border-top: 1px solid var(--glass-light);
+    border-bottom: 1px solid var(--glass-light);
+  }
+
+  h4 {
+    font-weight: 700;
+  }
+
+  .text_section {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .icon {
+    width: 64px;
+  }
     
 </style>
