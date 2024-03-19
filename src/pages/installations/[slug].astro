@@ -31,25 +31,20 @@ const { exhibit } = Astro.props
 <MainLayout>
     
 
-    <!-- Back button -->
-
-
-    <!-- Main info -->
-
+    <!-- Back button -->        
+      <a href="../installations" class="return"><img src="/img/arrow.svg" alt="" class="back_arrow"> Back</a>
     <Overview>
-      <Image src={exhibit.image} inferSize alt="" />
-      <article>
-        <h1><span>{exhibit.no}</span> {exhibit.name}</h1>
+      <Image class="exhibition_img" src={exhibit.image} inferSize alt="" />
+      <article class="overview">
+        <h1 class="display"><span>{exhibit.no}</span> {exhibit.name}</h1>
         <ul>
-          <li><span>By:</span> {exhibit.artist}</li>
-          <li><span>Where:</span> {exhibit.location}</li>
+          <li><h4><span>By</span> {exhibit.artist}</h4></li>
+          <li><h4><span>Located</span> {exhibit.borough}</h4></li>
         </ul>
         <p>{exhibit.description}</p>
       </article>
     </Overview>
-    <Info />
-
-    <section>
+    <Info>
       <GlassBox>
         <h4>Thank you to</h4>
         <p>{exhibit.thanks_to}</p>
@@ -67,24 +62,58 @@ const { exhibit } = Astro.props
         </div>              
         <Button variant="map" label="View on map" />
       </GlassBox>
-    </section>
-    
+    </Info>    
 </MainLayout>
 
 <style>
 
-  section {
-    grid-column: 1 / 13;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-l);
-    padding: var(--spacing-xxl) 0;
-    border-top: 1px solid var(--glass-light);
-    border-bottom: 1px solid var(--glass-light);
+  a.return {
+    display: flex;
+    gap: var(--spacing-s);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    transition: .15s ease-in;
+  }
+
+  a.return:hover {
+    scale: 1.1;
+  }
+
+.back_arrow {
+    width: var(--spacing-xs);
+    transform: rotate(180deg);
+  }
+
+  .exhibition_img {
+    border: 1px solid var(--glass-light);
+    border-radius: var(--spacing-xxs);
+    filter: drop-shadow(0 -1px 16px rgba(233, 235, 248, 0.2));
+    min-height: 100%;
+    object-fit: cover;
+  }
+
+  article.overview {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+  }
+
+  h1 span {
+    font-size: 4rem;
+    background: -webkit-linear-gradient(bottom right,
+      var(--cherry),
+      var(--flamingo),
+      var(--amethyst));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   h4 {
     font-weight: 700;
+  }
+  h4 span {    
+    font-size: 1rem;
+    font-weight: 400;
   }
 
   .text_section {

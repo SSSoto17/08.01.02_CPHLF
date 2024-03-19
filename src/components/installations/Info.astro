@@ -1,3 +1,15 @@
----
+<section>
+    <slot />
+</section>
 
----
+<style>
+    section {
+        grid-column: 1 / 13;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-l);
+        padding: var(--spacing-xxl) 0;
+        border-top: 1px solid var(--glass-light);
+        border-bottom: 1px solid var(--glass-light);
+        }
+</style>
