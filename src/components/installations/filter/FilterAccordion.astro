@@ -107,13 +107,12 @@ const {title, options} = Astro.props
         })
     }
 
-    clear.forEach((element) => {
-        element.addEventListener("click", () => {
-            option.forEach((element) => {
-                if (element.classList.contains("active")) {
-                element.classList.remove("active");
-                }
-            });
-        });
-    })
+    for (i = 0; i < clear.length; i++) {
+        clear[i].addEventListener("click", function() {
+            var options = this.parentNode.childNodes;
+            for (i = 1; i < options.length; i++) {
+                if (options[i].classList.contains("active")) {
+                options[i].classList.remove("active");
+                }}
+            })}
 </script>
