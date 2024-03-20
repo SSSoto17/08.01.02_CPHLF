@@ -111,3 +111,61 @@ h5 {
   font-weight: 300;
   line-height: 0.75rem;
 }
+
+@media (min-width: 900px) {
+  .mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 899px) {
+  main {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-s);
+    padding: 32px 32px;
+  }
+  .desktop {
+    display: none;
+  }
+
+  /* TEXT STYLES - HEADINGS */
+
+  h1.display,
+  h1 {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  h3,
+  h4,
+  h5 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  /* TEXT STYLES - TAGLINES */
+
+  .tagline_lg {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .tagline_sm,
+  .tagline_m,
+  .tagline_bold {
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+  }
+
+  .tagline_xsm {
+    font-size: 0.5rem;
+    line-height: 0.5rem;
+  }
+}

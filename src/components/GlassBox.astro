@@ -17,4 +17,17 @@
         justify-content: center;
         gap: var(--spacing-s);
     }
+
+    @media (min-width: 900px) {
+      article:last-of-type {
+      display: none;
+
+    }
+}
+    @media (max-width: 899px) {
+      article:not(:last-of-type) {
+      display: none;
+
+    }
+}
 </style>
