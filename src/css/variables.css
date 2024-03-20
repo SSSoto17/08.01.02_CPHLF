@@ -48,7 +48,7 @@
   --text-primary: var(--purple-50);
   --text-secondary: var(--neutral-2);
   --text-highlight: var(--seafoam);
-  --text-hover: var(var(--purple-200));
+  --text-hover: var(--purple-200);
 
   /* STROKES */
   --glass-light: var(--purple-300);

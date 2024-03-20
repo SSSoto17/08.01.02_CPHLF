@@ -7,10 +7,10 @@
         <div class="logo"></div>
     </a>
     <ul>
-        <li><a href="/installations">Plan Your Visit</a></li>
-        <li><a href="#">Work With Us</a></li>
+        <li><a href="/installations">Plan Your Visit <img src="/img/arrow.svg" alt=""></a></li>
+        <li><a href="#">Work With Us <img src="/img/arrow.svg" alt=""></a></li>
         <li><a href="#">About</a></li>
-        <li>EN / DA</li>
+        <li><span class="language language_EN active">EN</span> / <span class="language language_DA">DA</span></li>
     </ul>
 </nav>
 
@@ -31,15 +31,54 @@ nav .logo {
 }
 
 nav ul {
-    width: 572px;
     display: flex;
-    justify-content: space-between;
+    gap: var(--spacing-xxl)
 }
 
 li {
     list-style: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+a {
+    display: flex;
+    gap: var(--spacing-s);  
+}
+
+a img {
+    width: var(--spacing-xs);
+    transform: rotate(90deg);
+}
+
+span {
+    cursor: pointer;
+}
+
+span.active {
+    border-bottom: 4px solid red;
 }
 
 
-
 </style>
+
+<script>
+    let currentLang = ".language_EN";
+
+    const language = document.querySelector(".language");
+
+    language.addEventListener("click", () => {  
+      document.querySelector(".language_DA").classList.remove("active");
+      document.querySelector(".language_EN").classList.remove("active");
+
+      document.querySelector(currentLang).classList.add("active");
+
+      if (currentLang === ".language_DA") {
+        currentLang = ".language_EN";
+      } else {
+        currentLang = ".language_DA";
+      }
+    }
+    );
+  </script>
