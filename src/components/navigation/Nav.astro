@@ -10,7 +10,7 @@
         <li><a href="/installations">Plan Your Visit <img src="/img/arrow.svg" alt=""></a></li>
         <li><a href="#">Work With Us <img src="/img/arrow.svg" alt=""></a></li>
         <li><a href="#">About</a></li>
-        <li class="language"><span class="language_EN active">EN</span> / <span class="language_DA">DA</span></li>
+        <li><span class="lang EN active">EN</span> / <span class="lang DA">DA</span></li>
     </ul>
 </nav>
 
@@ -57,28 +57,23 @@ span {
 }
 
 span.active {
-    border-bottom: 4px solid red;
+    border-bottom: 4px solid;
+    border-image: var(--gradient-hot) 1;
 }
 
 
 </style>
 
 <script>
-    let currentLang = ".language_EN";
+    const language = document.querySelectorAll(".lang");
 
-    const language = document.querySelector(".language");
+    language.forEach((element) => {
+        element.addEventListener("click", () => {
+            document.querySelector(".DA").classList.remove("active");
+            document.querySelector(".EN").classList.remove("active");
 
-    language.addEventListener("click", () => {  
-      document.querySelector(".language_DA").classList.remove("active");
-      document.querySelector(".language_EN").classList.remove("active");
-
-      document.querySelector(currentLang).classList.add("active");
-
-      if (currentLang === ".language_DA") {
-        currentLang = ".language_EN";
-      } else {
-        currentLang = ".language_DA";
-      }
-    }
-    );
+            element.classList.add("active");
+        });
+    })
+    
   </script>
