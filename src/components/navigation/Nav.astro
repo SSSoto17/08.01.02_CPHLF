@@ -1,7 +1,3 @@
----
-
----
-
 <nav>
     <a href="/">
         <div class="logo"></div>
@@ -13,6 +9,7 @@
         <li><span class="lang EN active">EN</span> / <span class="lang DA">DA</span></li>
     </ul>
 </nav>
+
 <style>
 nav {
     display: flex;
@@ -45,6 +42,10 @@ a {
     gap: var(--spacing-s);  
 }
 
+a:hover {
+    color: var(--text-hover);
+}
+
 a img {
     width: var(--spacing-xs);
     transform: rotate(90deg);
@@ -59,8 +60,6 @@ span.active {
     border-image: var(--gradient-hot) 1;
     font-weight: 800;
 }
-
-
 </style>
 
 <script>

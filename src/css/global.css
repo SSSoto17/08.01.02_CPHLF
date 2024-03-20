@@ -26,10 +26,6 @@ a {
   transition: 0.15s ease-in;
 }
 
-a:hover {
-  color: var(--text-hover);
-}
-
 /* TEXT STYLES - HEADINGS */
 
 h1.display {

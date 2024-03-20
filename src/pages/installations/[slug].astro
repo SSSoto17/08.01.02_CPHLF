@@ -30,7 +30,7 @@ const { exhibit } = Astro.props
 <MainLayout>    
       <a href="/installations" class="return"><img src="/img/arrow.svg" alt="" class="back_arrow"> Back</a>
     <Overview>
-      <h1 class="display mobile"><span>{exhibit.no}</span> {exhibit.name}</h1>
+      <h1 class="mobile"><span>{exhibit.no}</span> {exhibit.name}</h1>
       <Image class="exhibition_img" src={exhibit.image} inferSize alt="" />
       <article class="overview">
         <h1 class="display desktop"><span>{exhibit.no}</span> {exhibit.name}</h1>
@@ -103,8 +103,12 @@ const { exhibit } = Astro.props
     gap: var(--spacing-s);
   }
 
+  h1 {
+    font-size: 3rem;
+  }
+
   h1 span {
-    font-size: 4rem;
+    font-size: 2.5rem;
     background: -webkit-linear-gradient(bottom right,
       var(--cherry),
       var(--flamingo),
