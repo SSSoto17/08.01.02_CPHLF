@@ -6,11 +6,8 @@ import FilterAccordion from '../installations/filter/FilterAccordion.astro'
 
 <aside>
     <h1>Filter</h1>
-    <div class="aside">
-    <FilterAccordion title="Location" options={["Blah", "Blah2"]}/>
+    <FilterAccordion title="Location" options={["Nørrebro", "Østerbro", "Vesterbro", "Sydhavn", "Ørestad"]}/>
     <FilterAccordion title="Year" options={["Upcoming", "Current", "Archive"]} />
-    <FilterAccordion title="Artist" options={["Blah", "Blah2"]} />
-</div>
 </aside>
 
 <style>
@@ -39,7 +36,3 @@ import FilterAccordion from '../installations/filter/FilterAccordion.astro'
     }
     }
 </style>
-
-<script>
-    const filterAcc = document.querySelectorAll("FilterAccordion");
-</script>
