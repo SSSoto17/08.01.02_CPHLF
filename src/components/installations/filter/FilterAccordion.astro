@@ -1,6 +1,6 @@
 ---
 
-const {title, type} = Astro.props
+const {title, options} = Astro.props
 
 ---
 
@@ -9,20 +9,12 @@ const {title, type} = Astro.props
     <h4>{title}</h4>
     <img src="/img/arrow.svg" alt="">
 </article>
-{type=="Location" && <ul class="location">
-    <li>Nørrebro</li>
-    <li>Østerbro</li>
-    <li>Vesterbro</li>
-    <li>Sydhavn</li>
-    <li>Ørestad</li>
+<ul>
+    {options.map(element=>{
+        return <li>{element}</li>
+    })}  
     <li class="reset">Clear</li>
-</ul>}
-{type=="Year" && <ul class="year">
-    <li>Upcoming</li>
-    <li>Current</li>
-    <li>Archive</li>
-    <li class="reset">Clear</li>
-</ul>}
+</ul>
 </section>
 
 <style>
@@ -46,6 +38,7 @@ const {title, type} = Astro.props
     }
 
     ul {
+        display: none;
         width: 164px;
         padding-left: var(--spacing-s);
     }
@@ -67,12 +60,33 @@ const {title, type} = Astro.props
 </style>
 
 <script>
-    const filterToggle = document.querySelector(".heading");
+    // const filterToggle = document.querySelector(".heading");
 
-    filterToggle.addEventListener("click", (evt) => {
-        // document.querySelector("ul").addEventListener("click", () => {
-        //     console.log("click2")
-        // });
-        // document.querySelector("ul").classList.toggle("active");
-    })
+    // filterToggle.addEventListener("click", (evt) => {
+    //     // document.querySelector("ul").addEventListener("click", () => {
+    //     //     console.log("click2")
+    //     // });
+    //     // document.querySelector("ul").classList.toggle("active");
+    // })
+
+    const acc = document.getElementsByClassName("heading");
+    var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+} 
+
+
 </script>
