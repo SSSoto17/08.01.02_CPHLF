@@ -24,12 +24,12 @@
 <div id="information">
     <h3>Information</h3>
     <ul>
-        <li>Fotokonkurrence</li>
-        <li>Presse & Medier</li>
-        <li>Gdpr & pERSONDATA</li>
-        <li>FOR KUNSTNERE</li>
-        <li>FAQ</li>
-        <li>TIDLIGERE FESTIVALER</li>
+        <li><a href="#">Fotokonkurrence</a></li>
+        <li><a href="#">Presse & Medier</a></li>
+        <li><a href="#">GDPR & Persondata</a></li>
+        <li><a href="#">FOR KUNSTNERE</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">TIDLIGERE FESTIVALER</a></li>
     </ul>
 </div>
 <div id="socials" class="desktop">
@@ -49,10 +49,9 @@
 </div>
 
 <style>
-:root {
-    --purple-50: #eae7ef;
-    --stroke-light: var(--purple-50);
-    --purple-200: #9d92b4;
+
+svg path {
+    transition: fill .15s ease-in;
 }
 
 a:hover svg path{
@@ -65,7 +64,9 @@ h3 {
 }
 li {
     padding: 4px 0;
+    transition: .15s ease-in;
 }
+
 #information li {
     cursor: pointer;
     text-transform: uppercase;
