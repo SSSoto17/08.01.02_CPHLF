@@ -1,8 +1,10 @@
 ---
 
+const { screen } = Astro.props
+
 ---
 
-<article>
+<article class={screen}>
     <slot />
 </article>
 
@@ -12,22 +14,27 @@
         border: 1px solid var(--glass-light);
         border-radius: var(--spacing-xxs);
         padding: var(--spacing-l) var(--spacing-xxl);
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: center;
         gap: var(--spacing-s);
     }
 
+      article.mobile {
+        display: flex;
+      }
+
     @media (min-width: 900px) {
-      article:last-of-type {
-      display: none;
 
-    }
-}
-    @media (max-width: 899px) {
-      article:not(:last-of-type) {
-      display: none;
+      article {
+        padding: var(--spacing-m) var(--spacing-xxl);
+      }
 
+      article.mobile {
+        display: none;
+      }
+      article.desktop {
+        display: flex;
+      }
     }
-}
 </style>

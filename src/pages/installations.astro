@@ -38,7 +38,7 @@ const data = await fetch("https://pmybjwfsotmvaguasetn.supabase.co/rest/v1/cphli
     }
 
     section.installations {
-        grid-column: 4 / 13;
+        grid-column: 1 / 13;
         display: flex;
         flex-direction: column;
         gap: var(--spacing-l);        
@@ -57,10 +57,11 @@ const data = await fetch("https://pmybjwfsotmvaguasetn.supabase.co/rest/v1/cphli
         padding: var(--spacing-m) 0;
     }
 
-    @media (max-width: 899px) {
+    @media (min-width: 900px) {
 
     section.installations {
-        grid-column: 1 / 13;  
+        grid-column: 4 / 13;
+        
     }
 
     }

@@ -30,7 +30,7 @@ const { exhibit } = Astro.props
 <MainLayout>    
       <a href="/installations" class="return"><img src="/img/arrow.svg" alt="" class="back_arrow"> Back</a>
     <Overview>
-      <h1 class="mobile"><span>{exhibit.no}</span> {exhibit.name}</h1>
+      <h1 class="display mobile"><span>{exhibit.no}</span> {exhibit.name}</h1>
       <Image class="exhibition_img" src={exhibit.image} inferSize alt="" />
       <article class="overview">
         <h1 class="display desktop"><span>{exhibit.no}</span> {exhibit.name}</h1>
@@ -45,14 +45,14 @@ const { exhibit } = Astro.props
       </article>
     </Overview>
     <Info>
-      <GlassBox>
+      <GlassBox screen="desktop">
         <h4>Thank you to</h4>
         <p>{exhibit.thanks_to}</p>
       </GlassBox>
-      <GlassBox>
+      <GlassBox screen="desktop">
         <p>{exhibit.links}</p>
       </GlassBox>
-      <GlassBox>
+      <GlassBox screen="desktop">
         <div class="text_section">
           <div>
           <h3>Find it here:</h3>
@@ -62,10 +62,14 @@ const { exhibit } = Astro.props
         </div>              
         <Button variant="map" label="View on map" />
       </GlassBox>
-      <GlassBox>
-        <h4>Thank you to</h4>
+      <GlassBox screen="mobile">
+        <div class="acknowledgements">
+          <h4>Thank you to</h4>
         <p>{exhibit.thanks_to}</p>
-        <p class="line">{exhibit.links}</p>
+        </div>
+        <div class="links">
+          <p>{exhibit.links}</p>
+        </div>
       </GlassBox>
     </Info>    
 </MainLayout>
@@ -75,7 +79,6 @@ const { exhibit } = Astro.props
   a.return {
     display: flex;
     gap: var(--spacing-s);
-    font-size: 1.5rem;
     text-transform: uppercase;
     transition: .15s ease-in;
   }
@@ -90,11 +93,14 @@ const { exhibit } = Astro.props
   }
 
   .exhibition_img {
+    max-width: 544px;
+    min-height: 250px;
+    height: 100%;
     border: 1px solid var(--glass-light);
     border-radius: var(--spacing-xxs);
-    filter: drop-shadow(0 -1px 16px rgba(233, 235, 248, 0.2));
-    min-height: 100%;
+    filter: drop-shadow(0 -1px 16px rgba(233, 235, 248, 0.2));    
     object-fit: cover;
+    object-position: 25% 50%;
   }
 
   article.overview {
@@ -103,12 +109,16 @@ const { exhibit } = Astro.props
     gap: var(--spacing-s);
   }
 
+  article.h1 {
+    display: none;
+  }
+
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   h1 span {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     background: -webkit-linear-gradient(bottom right,
       var(--cherry),
       var(--flamingo),
@@ -134,23 +144,59 @@ const { exhibit } = Astro.props
     width: 64px;
   }
 
-  @media (max-width: 899px) {
-  .button {
-    margin: var(--spacing-s) auto;
-  }
-  a.return {
-    font-size: 1.25rem;
+  .mobile.button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--spacing-xs) 0;
   }
 
-  h1 span {
-    font-size: 2rem;
+  .acknowledgements, .links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+    padding: var(--spacing-m) 0;
+    
   }
-  h4 span {    
-    font-size: 0.9rem;
+
+  .acknowledgements {
+    border-bottom: 1px solid var(--stroke-light);
   }
-  .line {
-    border-top: 1px solid var(--glass-light);
-    padding: var(--spacing-s) 0;
+
+  .acknowledgements h4 {
+    font-size: 1.5rem;
+    font-weight: 400;
   }
-}
+
+  @media (min-width: 900px) {
+
+    h1.display.mobile {
+      display: none;
+    }
+    h1.desktop {
+      display: inline;
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+
+    h1 span {
+      font-size: 2.5rem;
+    }
+
+    h4 span {    
+      font-size: 1rem;
+    }
+
+    a.return {
+      font-size: 1.5rem;
+    }
+
+    article.overview {
+    gap: var(--spacing-xs);
+  }
+
+  .mobile.button {
+    display: none;
+  }
+  }
 </style>

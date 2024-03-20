@@ -5,15 +5,19 @@
 <style>
     section {
       grid-column: 1 / 13;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing-l);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-s);
+      max-width: 544px;
+      margin: auto;
     }
 
-    @media (max-width: 899px) {
+    @media (min-width: 900px) {
       section {
-      grid-template-columns: 1fr;
-
-    }
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-l);
+        max-width: 100%;
+      }
     }
 </style>

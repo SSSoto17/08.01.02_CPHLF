@@ -5,13 +5,16 @@ import FilterAccordion from '../installations/filter/FilterAccordion.astro'
 ---
 
 <aside>
-    <h1>Filter</h1>
-    <FilterAccordion title="Location" options={["Nørrebro", "Østerbro", "Vesterbro", "Sydhavn", "Ørestad"]}/>
-    <FilterAccordion title="Year" options={["Upcoming", "Current", "Archive"]} />
+    <h1>Filters</h1>
+    <ul>
+        <li><FilterAccordion title="Location" options={["Nørrebro", "Østerbro", "Vesterbro", "Sydhavn", "Ørestad"]}/></li>
+        <li><FilterAccordion title="Year" options={["Upcoming", "Current", "Archive"]} /></li>
+    </ul>   
+    
 </aside>
 
 <style>
-    aside, .aside {
+    aside {
         grid-column: 1 / 4;
         padding: var(--spacing-m) 0;
         display: flex;
@@ -20,19 +23,24 @@ import FilterAccordion from '../installations/filter/FilterAccordion.astro'
     }
 
     h1 {
-        font-size: 32px;
-        font-weight: 700;
-        line-height: 32px;
-    }
-
-    @media (max-width: 899px) {
-        .aside {
-        flex-direction: row;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.5rem;
+        }
+    ul {
+        display: flex;
         gap: var(--spacing-m);
     }
-    h1 {
-        font-size: 24px;
-        line-height: 24px;
+
+    @media (min-width: 900px) {
+        
+        h1 {
+        font-size: 2rem;
+        line-height: 2rem;
     }
+
+        ul {
+            flex-direction: column;
+        }
     }
 </style>
