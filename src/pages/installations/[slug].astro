@@ -1,7 +1,6 @@
 ---
 
 import MainLayout from '../../layouts/MainLayout.astro'
-
 import Overview from '../../components/installations/Overview.astro'
 import Info from '../../components/installations/Info.astro'
 import GlassBox from '../../components/GlassBox.astro'
@@ -28,10 +27,7 @@ const { exhibit } = Astro.props
 
 ---
 
-<MainLayout>
-    
-
-    <!-- Back button -->        
+<MainLayout>    
       <a href="/installations" class="return"><img src="/img/arrow.svg" alt="" class="back_arrow"> Back</a>
     <Overview>
       <Image class="exhibition_img" src={exhibit.image} inferSize alt="" />

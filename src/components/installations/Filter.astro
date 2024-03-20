@@ -6,8 +6,9 @@ import FilterAccordion from '../installations/filter/FilterAccordion.astro'
 
 <aside>
     <h1>Filter</h1>
-    <FilterAccordion title="Location" type="Location"/>
-    <FilterAccordion title="Year" type="Year"/>
+    <FilterAccordion title="Location" options={["Blah", "Blah2"]}/>
+    <FilterAccordion title="Year" options={["Upcoming", "Current", "Archive"]} />
+    <FilterAccordion title="Artist" options={["Blah", "Blah2"]} />
 </aside>
 
 <style>
