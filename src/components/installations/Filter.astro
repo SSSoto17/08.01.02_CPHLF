@@ -6,13 +6,15 @@ import FilterAccordion from '../installations/filter/FilterAccordion.astro'
 
 <aside>
     <h1>Filter</h1>
+    <div class="aside">
     <FilterAccordion title="Location" options={["Blah", "Blah2"]}/>
     <FilterAccordion title="Year" options={["Upcoming", "Current", "Archive"]} />
     <FilterAccordion title="Artist" options={["Blah", "Blah2"]} />
+</div>
 </aside>
 
 <style>
-    aside {
+    aside, .aside {
         grid-column: 1 / 4;
         padding: var(--spacing-m) 0;
         display: flex;
@@ -24,6 +26,17 @@ import FilterAccordion from '../installations/filter/FilterAccordion.astro'
         font-size: 32px;
         font-weight: 700;
         line-height: 32px;
+    }
+
+    @media (max-width: 899px) {
+        .aside {
+        flex-direction: row;
+        gap: var(--spacing-m);
+    }
+    h1 {
+        font-size: 24px;
+        line-height: 24px;
+    }
     }
 </style>
 
