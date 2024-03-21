@@ -2,7 +2,9 @@
 @import url(variables.css);
 
 body {
-  background-image: var(--gradient-bg);
+  background-image: url("../img/glow.svg"), var(--gradient-bg);
+  background-size: cover;
+  background-position: 50% 15%;
   font-family: "karla", sans-serif;
   color: var(--text-primary);
 }
@@ -172,6 +174,10 @@ p {
 }
 
 @media (min-width: 1200px) {
+  body {
+    background-size: 125%;
+  }
+
   main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
