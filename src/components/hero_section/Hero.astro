@@ -3,60 +3,131 @@
 import {Image} from 'astro:assets'
 import heroImg from '../../img/11_thewave.png'
 import Countdown from './Countdown.astro'
+import Button from '../Button.astro'
 
 ---
 <section>
-    <div>
-        <h1>COPENHAGEN LIGHT FESTIVAL</h1>
-        <h2>2/2 - 25/2 2024</h2>
-        <h3>where the city lights up with beautiful art installations, creating a magical experience for everyone.</h3>
-        <Countdown/>
-    </div>
+    <article>
+        <div class="text_section">
+            <h1>COPENHAGEN LIGHT FESTIVAL</h1>
+            <h2>2/2 - 25/2 2024</h2>
+            <h3>where the city lights up with beautiful art installations, creating a magical experience for everyone.</h3>
+        </div>
+        <div class="countdown_section">
+            <Countdown/>            
+            <div class="button">
+                <Button variant="map" label="Show map" class="button"/>  
+            </div>                
+        </div>
+    </article>    
     <Image src={heroImg} alt="The Wave" />
 </section>
 
 <style>
 
-section {
-    grid-column: 1 / 13;
-    position: relative;
-}
-div {
-display: flex;
-flex-direction: column;
-align-items: start;
-gap: var(--spacing-s);
-grid-column: 1/13;
-}
+    section {
+        position: relative;
+        grid-column: 1 / 13;
+    }
+    article {
+        max-width: 544px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: auto;
+    }
 
-h1 {
-font-family: "moon", sans-serif;
-font-weight: thin;
-letter-spacing: 0.2rem;
-line-height: 4rem;
-text-transform: uppercase;
-max-width: 695px;
-}
+    article .text_section, article .countdown_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-xs);
+    }
 
-h2 {
-background-clip: text;
-background-image: var(--gradient-hot);
-color: transparent;
-font-family: "karla", sans-serif;
--webkit-background-clip: text;
-}
+    article .countdown_section .button  {
+        margin: var(--spacing-m) 0;
+    }
 
-h3 {
-text-transform: lowercase;
-max-width: 552px;
-}
+    h1 {
+        font-family: "moon", sans-serif;
+        font-size: 2rem;
+        font-weight: 400;
+        letter-spacing: 0.05rem;
+        line-height: 2rem;
+        text-transform: uppercase;
+    }
 
-img {
-width: 820px;
-top: 0;
-right: -100px;
-position: absolute;
-z-index: -1;
+    h2 {
+        font-family: "karla", sans-serif;
+        font-size: 1rem;
+        line-height: 1rem;
+        color: transparent;
+        background-clip: text;
+        background-image: var(--gradient-hot);
+        -webkit-background-clip: text;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    h3 {
+        display: none;
+        text-transform: none;
+    }
+
+    img {
+        min-width: 500px;
+        width: 150%;
+        max-width: 820px;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);        
+        z-index: -1;
+    }
+
+@media (min-width: 768px) {
+
+    article {
+        align-items: start;
+        padding: var(--spacing-l) 0;
+        margin: 0;
+    }
+
+    article .text_section, article .countdown_section {
+        align-items: start;
+        gap: var(--spacing-s);
+    }
+
+    article .countdown_section .button  {
+        display: none;
+    }
+    h1 {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    h2 {
+        font-size: 4rem;
+        line-height: 4.5rem;
+    }
+
+    h1, h2 {
+        text-align: left;
+    }
+
+    h3 {
+        display: block;
+    }
+
+    img {
+        width: 820px;
+        top: -50px;
+        right: -150px;
+        transform: none;
+    }
 }
 
 </style>
