@@ -149,12 +149,21 @@ a:hover {
 
     // LANGUAGE SELECTION
 
-    const language = document.querySelectorAll(".lang");
+    const mobileLang = document.querySelectorAll("ul.mobile .lang");
+    const desktopLang = document.querySelectorAll("ul.desktop .lang");
 
-    language.forEach((element) => {
+    mobileLang.forEach((element) => {
         element.addEventListener("click", () => {
-            document.querySelector(".DA").classList.remove("active");
-            document.querySelector(".EN").classList.remove("active");
+            document.querySelector("ul.mobile .DA").classList.remove("active");
+            document.querySelector("ul.mobile .EN").classList.remove("active");
+
+            element.classList.add("active");
+        });
+    })    
+    desktopLang.forEach((element) => {
+        element.addEventListener("click", () => {
+            document.querySelector("ul.desktop .DA").classList.remove("active");
+            document.querySelector("ul.desktop .EN").classList.remove("active");
 
             element.classList.add("active");
         });
