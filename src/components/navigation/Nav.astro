@@ -2,7 +2,18 @@
     <a href="/">
         <div class="logo"></div>
     </a>
-    <ul>
+    <ul class="burger">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="mobile">
+        <li><a href="/installations">Plan Your Visit <img src="/icons/arrow.svg" alt=""></a></li>
+        <li><a href="#">Work With Us <img src="/icons/arrow.svg" alt=""></a></li>
+        <li><a href="#">About</a></li>
+        <li><span class="lang EN active">EN</span> / <span class="lang DA">DA</span></li>
+    </ul>
+    <ul class="desktop">
         <li><a href="/installations">Plan Your Visit <img src="/icons/arrow.svg" alt=""></a></li>
         <li><a href="#">Work With Us <img src="/icons/arrow.svg" alt=""></a></li>
         <li><a href="#">About</a></li>
@@ -11,58 +22,133 @@
 </nav>
 
 <style>
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-l);
-}
 
-nav .logo {
-    background-image: url("https://copenhagenlightfestival.org/wp-content/uploads/2023/01/Stacked-Logo-for-frontpage.png");
-    background-size: 100%;
-    aspect-ratio: 1000 / 550;
-    width: 100px;
-}
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-s) var(--spacing-l);
+        position: relative;
+    }
 
-nav ul {
-    display: flex;
-    gap: var(--spacing-xxl)
-}
+    nav .logo {
+        background-image: url("https://copenhagenlightfestival.org/wp-content/uploads/2023/01/Stacked-Logo-for-frontpage.png");
+        background-size: 100%;
+        aspect-ratio: 1000 / 550;
+        width: 100px;
+    }
 
-li {
+    ul.burger {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        cursor: pointer;
+        z-index: 1500;
+        position: relative;
+    }
+
+    ul.burger li {
+        width: 48px;
+        height: 5px;
+        background-color: var(--text-primary);
+        border-radius: 10px;
+        transition: .15s ease-in;
+    }
+
+    ul.burger.active li:nth-child(1) {
+        transform: rotate(35deg);
+        position: absolute;
+    }    
+
+    ul.burger.active li:nth-child(2) {
+        opacity: 0;
+    }
+
+    ul.burger.active li:nth-child(3) {
+        transform: rotate(-35deg);
+        position: absolute;
+    }
+
+    ul.mobile, ul.desktop {
+        display: none;
+    }
+
+    ul.mobile.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-l);
+        background-color: rgba(23, 10, 50, .95);
+        z-index: 1000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;        
+        padding: var(--spacing-xxl);
+        padding-top: 80px;
+    }
+
+    ul.mobile li, ul.desktop li {
     list-style: none;
     text-transform: uppercase;
     font-weight: 500;
     font-size: 1.25rem;
+    }
+
+    a {
+        display: flex;
+        gap: var(--spacing-s);  
+    }
+
+    a img {
+        width: var(--spacing-xs);
+        transform: rotate(90deg);
+    }
+
+    span {
+        cursor: pointer;
+    }
+
+    span.active {
+        border-bottom: 4px solid;
+        border-image: var(--gradient-hot) 1;
+        font-weight: 800;
+    }
+
+@media (min-width: 900px) {
+    nav {
+    padding: var(--spacing-l);
 }
 
-a {
+ul.burger, ul.mobile, ul.mobile.active {
+    display: none;
+}
+nav ul.desktop {
     display: flex;
-    gap: var(--spacing-s);  
+    gap: var(--spacing-xxl)
 }
 
 a:hover {
     color: var(--text-hover);
 }
-
-a img {
-    width: var(--spacing-xs);
-    transform: rotate(90deg);
-}
-
-span {
-    cursor: pointer;
-}
-
-span.active {
-    border-bottom: 4px solid;
-    border-image: var(--gradient-hot) 1;
-    font-weight: 800;
 }
 </style>
 
 <script>
+
+    // MOBILE NAV
+
+    const burger = document.querySelector("ul.burger");
+    const mobileNav = document.querySelector("ul.mobile");
+
+    burger.addEventListener("click", () => {
+        burger.classList.toggle("active");
+        mobileNav.classList.toggle("active");
+    })
+
+    // LANGUAGE SELECTION
+
     const language = document.querySelectorAll(".lang");
 
     language.forEach((element) => {
@@ -72,6 +158,5 @@ span.active {
 
             element.classList.add("active");
         });
-    })
-    
+    })    
   </script>
