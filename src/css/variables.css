@@ -2,8 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
 @font-face {
   font-family: "moon";
-  src: url("moon_font/moon2.0-regular-webfont.woff2") format("woff2"),
-    url("moon_font/moon2.0-regular-webfont.woff") format("woff");
+  src: url("../../public/moon_font/moon2.0-regular-webfont.woff2")
+      format("woff2"),
+    url("../../public/moon_font/moon2.0-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
