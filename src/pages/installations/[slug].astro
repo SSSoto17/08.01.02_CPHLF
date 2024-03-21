@@ -5,6 +5,7 @@ import Overview from '../../components/installations/Overview.astro'
 import Info from '../../components/installations/Info.astro'
 import GlassBox from '../../components/GlassBox.astro'
 import Button from '../../components/Button.astro'
+
 import { Image } from 'astro:assets'
 
 export async function getStaticPaths() {
@@ -28,10 +29,10 @@ const { exhibit } = Astro.props
 ---
 
 <MainLayout>    
-      <a href="/installations" class="return"><img src="/img/arrow.svg" alt="" class="back_arrow"> Back</a>
+      <a href="/installations" class="return"><img src="/icons/arrow.svg" alt="" class="back_arrow"> Back</a>
     <Overview>
       <h1 class="display mobile"><span>{exhibit.no}</span> {exhibit.name}</h1>
-      <Image class="exhibition_img" src={exhibit.image} inferSize alt="" />
+      <Image class="exhibition_img" src={exhibit.image} inferSize alt="Image of exhibition" />
       <article class="overview">
         <h1 class="display desktop"><span>{exhibit.no}</span> {exhibit.name}</h1>
         <ul>
@@ -58,7 +59,7 @@ const { exhibit } = Astro.props
           <h3>Find it here:</h3>
           <h5>{exhibit.location}</h5>
         </div>
-        <img class="icon"src="/img/location.svg" alt=""> 
+        <img class="icon"src="/icons/location.svg" alt=""> 
         </div>              
         <Button variant="map" label="View on map" />
       </GlassBox>

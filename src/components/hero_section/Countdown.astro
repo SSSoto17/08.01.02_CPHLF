@@ -1,0 +1,56 @@
+---
+
+---
+<section>
+    <div>
+        <h2>245</h2>
+        <p>DAYS</p>
+    </div>
+    
+    <div>
+        <h2>06</h2>
+        <p>HOURS</p>
+    </div>
+    
+    <div>
+        <h2>23</h2>
+        <p>MINUTES</p>
+    </div>
+    
+    <div>
+        <h2>09</h2>
+        <p>SECONDS</p>
+    </div>
+</section>
+
+
+
+<style>
+
+    section {
+        display: flex;        
+    }
+    div {
+        align-items: center;        
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        padding: 0 var(--spacing-l);
+    }
+
+    div:first-child {
+        padding-left: 0;
+    }
+
+    div:not(:last-child) {
+        border-right: 1px solid var(--text-primary);
+    }
+
+    h2 {
+        font-size: 5rem;
+        font-weight: 400;
+        line-height: 5rem;
+        font-family: "karla", sans-serif;
+    }
+
+</style>

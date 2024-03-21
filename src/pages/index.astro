@@ -2,19 +2,15 @@
 
 import MainLayout from '../layouts/MainLayout.astro'
 
-import Banner from '../components/Banner.astro'
+import Banner from '../components/banner/Banner.astro'
 import Button from '../components/Button.astro'
-import Hero from '../components/Hero.astro'
+import Hero from '../components/hero_section/Hero.astro'
 
 ---
 
 <MainLayout>
-	<Hero />
-			<!-- LANDING PAGE COMPONENT SUGGESTIONS:
-			- hero, with image, headlines, and countdown
-			-->
-	
-	<div class="mobile button"><Button variant="map" label="Show map"/></div>	
+	<Hero/>
+	<!-- <div class="mobile button"><Button variant="map" label="Show map"/></div>	 -->
 	<Banner />
 </MainLayout>
 
